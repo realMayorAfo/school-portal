@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div>
+    <marquee behavior="" direction="">dash board</marquee>
+</div>
+<div id="disp"></div>
+<body>
+    <script>
+        var allUser =JSON.parse(localStorage.getItem(`localStudent`))
+        var myIndex = localStorage.getItem(`currentUserIndex`)
+        // console.log(allUser[myIndex].firstName)
+        disp.innerHTML=`
+        <h1>${allUser[myIndex].lastName}</h1>
+        <button onclick="deleteUser()">Delete</button>`
+
+        function deleteUser(){
+            allUser.splice(userIndex,1)
+            localStorage.setItem(`localStudent`,allUser)
+        }
+    </script>
+</body>
+</html>

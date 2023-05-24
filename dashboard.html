@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body onload="show()">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">First Name</label>
+              <input type="text" class="form-control" id="editedFname">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Last Name</label>
+              <textarea class="form-control" id="editedLname"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">New Email</label>
+              <input type="email" class="form-control" id="editedEmail">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">New Password</label>
+              <input type="password" class="form-control" id="editedPassword">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"data-bs-dismiss="modal" onclick="confirm()">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <center class="bg bg-success">
+<div>
+    <div>
+        <marquee behavior="" direction="">
+            MAPMAY WEB DES
+        </marquee>
+        <h2>DASHBOARD</h2>
+    </div>
+    <div>
+        <h3>
+            STUDENT DETAILS
+        </h3>
+    </div>
+        <table id="myTable" class="table table-striped">
+            <tr>
+                <th>S/N</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Actions</th>  
+            </tr>`     
+            
+        </table>
+</div>
+    </center>
+    
+    <script src="../js/bootstrap.js"></script>
+        <script>
+           var studentDetails = JSON.parse(localStorage.getItem(`localStudent`))
+           
+           function show(){
+            for (let index = 0; index < studentDetails.length; index++) {
+                myTable.innerHTML+=`
+            <tr>
+                <td>${index+1}</td>
+                <td>${studentDetails[index].firstName}</td>
+                <td>${studentDetails[index].lastName}</td>
+                <td>${studentDetails[index].email}</td>
+                <td>${studentDetails[index].password}</td>
+                <td>
+                    <button class="btn btn-danger" onclick="deleteItem(${index})">Delete</button>
+                    <button class="btn btn-warning" onclick="editDetails(${index})" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button>
+                </td>  
+            </tr>`
+           }
+                
+            }
+            function deleteItem(userIndex){
+              var myIndex =localStorage.getItem
+                var userAnswer=confirm("Are you Sure?")
+                if(userAnswer){
+                
+                    studentDetails.splice(userIndex,1)
+                    myTable.innerHTML=""
+                }
+            }
+
+            function editDetails(userIndex){
+              console.log(studentDetails)
+
+                editedItems = userIndex
+                editedFname.value= studentDetails[userIndex].firstName,
+                editedLname.value= studentDetails[userIndex].lastName,
+                editedEmail.value= studentDetails[userIndex].Email,
+                editedPassword.value= studentDetails[userIndex].password
+            }
+          
+            function confirm() {
+                studentDetails[editedItems]={
+                firstName:editedFname.value,
+                lastName:editedLname.value,
+                email:editedEmail.value,
+                password:editedPassword.value
+              }  
+              show()         
+            }
+
+            function deleteItem(userIndex){
+            studentDetails.splice(userIndex,1)
+            localStorage.setItem(`localStudent`,studentDetails)
+        }
+            // displayStudent()
+           
+        //    function displayStudent(){
+        //     myTable.innerHTML+=`
+        //     <tr>
+        //         <td>${index+1}</td>
+        //         <td>${studentDetails[index].firstName}</td>
+        //         <td>${studentDetails[index].lastName}</td>
+        //         <td>${studentDetails[index].email}</td>
+        //         <td>${studentDetails[index].password}</td>
+        //         <td>
+        //             <button>Delete</button>
+        //             <button>Edit</button>
+        //         </td>  
+        //     </tr>`
+        //    }
+        </script>
+</body>
+</html>

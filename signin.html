@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+    <center>
+        <marquee behavior="" direction="">
+
+        </marquee>
+        <h1>    SIGN IN</h1>
+        <input class="form-control my-2" type="email" placeholder="Enter Your Email" id="em">
+                    <input class="form-control my-2" type="password" placeholder="Enter Your Password" id="pass">
+                    <button onclick="signIn()" class="btn btn-success">sign in</button
+    </center>
+
+    <script>
+        var allStudents = JSON.parse(localStorage.getItem(`localStudent`))
+        console.log(allStudents)
+        function signIn(){
+            var userEmail = em.value
+            var userPassword =pass.value
+            // correctio
+         
+            var found = false
+            for (let index = 0; index < allStudents.length; index++) {
+             if (allStudents[index].email== userEmail && allStudents[index].password==userPassword){
+                localStorage.setItem(`currentUserIndex`,index)
+                found= true
+                //    this is just tostop the for loop
+            break;
+            }    
+            }
+            if(found == true){
+                window.location.href="dashboard.html"
+            }else{
+                alert("incorrect details")
+            }
+        }
+    </script>
+</body>
+</html>

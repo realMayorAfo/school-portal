@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapmayschool.com</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body style="background: linear-gradient(to top left, yellow,l green,red); min-height: 100vh;">
+    <center class=" mx-5, my-2">
+        <marquee behavior="" direction="">
+            <h1>MapMay Web Des</h1>
+        </marquee>
+        <div class="container-fluid " >
+            <div class="row">
+                <div class="col-9 mx-auto shadow-sm bg-info">
+                    <h1>SIGN UP PAGE</h1>
+                    <input class="form-control my-2" type="text" placeholder="Last Name"  id="ln">
+                    <input  class="form-control my-2" type="text" placeholder="First Name" id="fn">
+                    <input class="form-control my-2" type="email" placeholder="Enter Email" id="em">
+                    <input class="form-control my-2" type="password" placeholder="Enter Password" id="pass">
+                    <button onclick="signUp()" class="btn btn-success">Click Here To Sign UP</button>
+                </div>
+            </div>
+        </div>
+        
+    </center>
+
+    <script>
+        var allStudent =[]
+        if (localStorage.localStudent){
+            var oldStudent = JSON.parse(localStorage.getItem(`localStudent`))
+             var allStudent= oldStudent
+        }
+        
+       
+        console.log(allStudent)
+        function signUp(){
+            var student={
+                firstName:fn.value,
+                lastName:ln.value,
+                email:em.value,
+                password:pass.value
+            }
+            allStudent.push(student)
+            localStorage.setItem(`localStudent`, JSON.stringify(allStudent));
+           window.location.href="signin.html"
+        }
+    </script>
+</body>
+</html>

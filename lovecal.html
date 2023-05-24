@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    
+</head>
+
+<body 
+    class="" style="background-image:url(../../istockphoto-1314144835-612x612.jpg) ; background-repeat: no-repeat; background-size: cover; height: auto;">
+    <center>
+            <div>
+                <marquee behavior="" direction="">
+                    <h1 class="text-danger">MAYOR'S LOVE CALCULATOR</h1> 
+                </marquee>
+            </div>
+      <div class="col-9 mx-auto sm-shadow my-auto container-fluid ">
+       <input class="form-control my-5" type="text" placeholder="Your Name" id="firstPerson" >
+    <div><h1 class="text-center text-warning" >&</h1></div>
+    <input class="form-control my-5" type="text" placeholder="Your Lovers Name" id="secondPerson">
+    <div>
+        <button  onclick="find()" class="btn btn-success">find Love compatibility</button>
+    </div>  
+    </div>
+   
+    
+    <div id="disp"  `></div>  
+    </center>
+    <footer class="text-center">
+        <div>
+            <h6>Note: All Na cruise ooo </h6>  
+        </div>
+       
+    </footer>
+    <script>
+        // var myDate = new Date()
+        // disp.innerHTML=`${myDate}` 
+           
+        function find(){
+            var first =firstPerson.value
+        var second= secondPerson.value
+        var randomNumber = Math.round( Math.random()*100)
+        if(first ==0 && second ==0){
+            disp.innerHTML=`<h3>Input a value</h3>`
+        }else if(randomNumber<=20){
+        disp.innerHTML = `<h3 class="text-center text-danger">Continue Breakfast is loading💔💔💔 It will end in Tears ${randomNumber}%</h3>`
+        }else if(randomNumber<=50){
+            disp.innerHTML = `<h1 class="text-center text-warning">This ship 🚤🚤🚤🚤 will soon wreck 💔💔💔💔💔💔💔 The Love is one way Side ${randomNumber}%</h1>` 
+        }else if(randomNumber<=70){
+            disp.innerHTML = `<h1 class="text-center">you don reach bus stop  💕💕💕❤️ ${randomNumber}%</h1>`
+        }else if(randomNumber<=100){
+            disp.innerHTML = `<h1 class="text-center text-success">You guys should pick a Date,  MARCH FROM HEVEAN 💞💞💕💕💕❤️❤️    ${randomNumber}%</h1>` 
+        }
+    }
+    </script>
+</body>
+</html>
